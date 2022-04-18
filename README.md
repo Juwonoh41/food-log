@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
+3.0
+*Rails version
+7.0
 
 * System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+Regular bundle install
 
 * Deployment instructions
-
+Clone github repo. Run bundle install. Start rails server. 
 * ...
+Image of archive of logs. 
+![Image 4-18-22 at 3 09 PM](https://user-images.githubusercontent.com/89501438/163889656-224338c6-e3eb-45d4-9199-6fb514ff1aa4.jpg)
