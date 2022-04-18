@@ -1,33 +1,33 @@
 <p style="color: green"><%= notice %></p>
 <% content_for :title do%>
-  Foodlog &ndash; <%= DateTime.now%>
+  Foodlog &ndash; <%= DateTime.now.to_fs(:nice_date) %>
 <%end%>
-<table>
-<thead>
-  <tr>
-    <th>Meal Type</th>
-    <th>Calories</th>
-    <th>Protiens</th>
-    <th>Carbohydrates</th>
-    <th>Fats</th>
-    <th colspan="3"></th>
-  </tr>
-</thead>
 
-<tbody >
+<div class="columns mt-6 is-centered">
   <% @entries.each do |entry| %>
-    <tr>
-      <td><%=entry.meal_type%></td>
-      <td><%=entry.calories%></td>
-      <td><%=entry.protien%></td>
-      <td><%=entry.carbohydrates%></td>
-      <td><%=entry.fats%></td>
-      <td><%=link_to 'Show', entry%></td>
-      <td><%=link_to 'Edit', edit_entry_path%></td>
-      <td><%=link_to 'Destroy', entry, method: :delete, data:{confirm: 'Are you sure?'}%></td>
-
-    </tr>
+    <div class = 'column is-one-quarter'>
+      <div class ='card'>
+        <header class='card-header'>
+          <p class='card-header-title is-centered'><%=entry.meal_type%></p>
+        </header>
+        <div class='card-content'>
+          <div class='content'>
+            <p><span class='has-text-weight-bold'><%=entry.calories%></span> calories</p>
+            <p><span class='has-text-weight-bold'><%=entry.protien%></span> grams of protien</p>
+            <p><span class='has-text-weight-bold'><%=entry.carbohydrates%></span> grams of carbohydrates</p>
+            <p><span class='has-text-weight-bold'><%=entry.fats%></span> grams of fats</p>
+            <p class ='italic'>Logged <%= time_ago_in_words(entry.created_at)%> ago</p>
+          </div>
+        </div>
+        <div class='card-footer'>
+          <%=link_to 'Show', entry, class: 'card-footer-item'%>
+          <%=link_to 'Edit', edit_entry_path(entry), class: 'card-footer-item'%>
+          <%=link_to 'Destroy', entry, method: :delete, data:{confirm: 'Are you sure?'}, class: 'card-footer-item'%>
+        </div>
+      </div>
+    </div>
   <% end %>
-</tbody>
-</table>
-<%= link_to "New entry", new_entry_path %>
+</div>
+
+
+
