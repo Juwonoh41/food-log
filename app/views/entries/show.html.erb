@@ -1,10 +1,41 @@
-<p style="color: green"><%= notice %></p>
 
-<%= render @entry %>
+
+<% content_for :title do%>
+  <%= @entry.meal_type%> &ndash; <%= DateTime.now.to_fs(:nice_date)%>
+<%end%>
+
+<div class='columns mt-6 is-centered'>
+  <div class='column is-one-third has-text-centered'>
+    <nav class='panel is-link'>
+      <p class='has-background-primary panel-heading has-text-centered' >
+        <%= @entry.meal_type %>
+      </p>
+ 
+      <div class='panel-block'>
+        Calories: <%= @entry.calories %>
+      </div>
+
+      <div class='panel-block'>
+        Protien: <%= @entry.protien %>
+      </div>
+      <div class='panel-block'>
+        Carbohydrates: <%= @entry.carbohydrates %>
+      </div>
+
+      <div class='panel-block'>
+        Fats: <%= @entry.fats %>
+      </div>
+    </nav>
+    <div class='columns is-mobile'>
+      <div class ='column'>
+        <%= link_to "Edit", edit_entry_path(@entry), class: 'is-centered button is-grey' %> |
+        <%= link_to "Back", entries_path,class: 'is-centered button is-grey' %> |
+        <%=link_to 'Delete', entries_delete_path(@entry), method: :delete, data:{confirm: 'Are you sure?'}, class: 'is-centered button is-grey'%>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div>
-  <%= link_to "Edit this entry", edit_entry_path(@entry) %> |
-  <%= link_to "Back to entries", entries_path %>
-
-  <%= button_to "Destroy this entry", @entry, method: :delete %>
+ 
 </div>

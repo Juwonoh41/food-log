@@ -1,27 +1,28 @@
-<div id="<%= dom_id entry %>">
-  <p>
-    <strong>Meal type:</strong>
-    <%= entry.meal_type %>
-  </p>
+<% content_for :title do%>
+  <%= @entry.meal_type%> &ndash; <%= DateTime.now.to_fs(:nice_date)%>
+<%end%>
 
-  <p>
-    <strong>Calories:</strong>
-    <%= entry.calories %>
-  </p>
+<div class='columns mt-6 is-centered'>
+  <div class='column is-one-third'>
+    <nav class='panel is-link'>
+      <p class='panel-heading'>
+        <%= entry.meal_type %>
+      </p>
+ 
+      <div class='panel-block'>
+        Calories: <%= entry.calories %>
+      </div>
 
-  <p>
-    <strong>Protien:</strong>
-    <%= entry.protien %>
-  </p>
+      <div class='panel-block'>
+        Protien: <%= entry.protien %>
+      </div>
+      <div class='panel-block'>
+        Carbohydrates: <%= entry.carbohydrates %>
+      </div>
 
-  <p>
-    <strong>Carbohydrates:</strong>
-    <%= entry.carbohydrates %>
-  </p>
-
-  <p>
-    <strong>Fats:</strong>
-    <%= entry.fats %>
-  </p>
-
+      <div class='panel-block'>
+        Fats: <%= entry.fats %>
+      </div>
+    </nav>
+  </div>
 </div>

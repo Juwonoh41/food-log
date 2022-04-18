@@ -6,40 +6,44 @@
       <div class='message-header'>
         <p><%= pluralize(entry.errors.count, "error") %> prohibited this entry from being saved:</p>
       </div>
+      <div class='message-body'>
         <ul>
           <% entry.errors.each do |error| %>
             <li><%= error.full_message %></li>
           <% end %>
         </ul>
+      </div>
     </div>
   <% end %>
 
   <div>
-    <%= form.label :meal_type, style: "display: block" %>
-    <%= form.text_field :meal_type %>
+    <%= form.label :meal_type, style: "display: block", class: 'label' %>
+    <%= form.text_field :meal_type, class: 'input' %>
   </div>
 
   <div>
-    <%= form.label :calories, style: "display: block" %>
-    <%= form.number_field :calories %>
+    <%= form.label :calories, style: "display: block", class: 'label'  %>
+    <%= form.number_field :calories, class: 'input' %>
   </div>
 
   <div>
-    <%= form.label :protien, style: "display: block" %>
-    <%= form.number_field :protien %>
+    <%= form.label :protien, style: "display: block", class: 'label'  %>
+    <%= form.number_field :protien, class: 'input' %>
   </div>
 
   <div>
-    <%= form.label :carbohydrates, style: "display: block" %>
-    <%= form.number_field :carbohydrates %>
+    <%= form.label :carbohydrates, style: "display: block", class: 'label'  %>
+    <%= form.number_field :carbohydrates, class: 'input' %>
   </div>
 
   <div>
-    <%= form.label :fats, style: "display: block" %>
-    <%= form.number_field :fats %>
+    <%= form.label :fats, style: "display: block", class: 'label'  %>
+    <%= form.number_field :fats, class: 'input' %>
   </div>
-
-  <div>
-    <%= form.submit %>
+  <br>
+  <div class='action'>
+    <span>
+    <%= form.submit class: 'button is-success'%>
+  </span>
   </div>
 <% end %>
